@@ -1,10 +1,21 @@
 package com.employeewagecomputation;
 
+import java.util.ArrayList;
+
 public class Company {
-	public Employee employee;
+	String name;
+	ArrayList<Employee> employees = new ArrayList<Employee>();
 	
-	Company(Employee employee){
-		this.employee = employee;
+	Company(String name){
+		this.name = name;
+	}
+	
+	public void addEmployee() {
+		employees.add(new Employee());
+	}
+	
+	public void employeesMonthlyWage() {
+		employees.forEach((employee) -> System.out.println("Monthly wage for employee is "+employee.monthlyWage()));
 	}
 
 }

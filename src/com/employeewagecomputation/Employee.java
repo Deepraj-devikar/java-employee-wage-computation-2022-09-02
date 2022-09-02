@@ -1,18 +1,18 @@
 package com.employeewagecomputation;
 
 public class Employee {
-	public final static int IS_PRESENT = 1;
-	public final static int IS_PART_TIME = 2;
-	public static double WAGE_PER_HOUR = 20;
-	public static double FULL_DAY_HOUR = 8;
-	public static double PART_TIME_HOUR = 4;
-	public static int WORKING_DAYS = 20;
-	public static double MONTHLY_HOUR_LIMIT = 100;
+	final static int IS_PRESENT = 1;
+	final static int IS_PART_TIME = 2;
+	double WAGE_PER_HOUR = 20;
+	double FULL_DAY_HOUR = 8;
+	double PART_TIME_HOUR = 4;
+	int WORKING_DAYS = 20;
+	double MONTHLY_HOUR_LIMIT = 100;
 	
-	public static double monthWages = 0;
-	public static double monthHours = 0;
+	double monthWages = 0;
+	double monthHours = 0;
 	
-	public static int attendance() {
+	public int attendance() {
 		double wage = 0;
 		switch ((int) Math.floor(Math.random() * 10) % 3) {
 		case IS_PRESENT:
@@ -36,7 +36,7 @@ public class Employee {
 		}
 	}
 	
-	public static double monthlyWage() {
+	public double monthlyWage() {
 		int day = 1;
 		while (day <= 20 && monthHours < MONTHLY_HOUR_LIMIT) {
 			attendance();
