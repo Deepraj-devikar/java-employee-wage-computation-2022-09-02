@@ -7,8 +7,10 @@ public class EmployeeWageComputation {
 	public static double FULL_DAY_HOUR = 8;
 	public static double PART_TIME_HOUR = 4;
 	public static int WORKING_DAYS = 20;
+	public static double MONTHLY_HOUR_LIMIT = 100;
 	
 	public static double monthWages = 0;
+	public static double monthHours = 0;
 	
 	public static int attendance() {
 		double wage = 0;
@@ -18,12 +20,14 @@ public class EmployeeWageComputation {
 			wage = FULL_DAY_HOUR * WAGE_PER_HOUR;
 			System.out.println("Employee daily wage is "+wage);
 			monthWages += wage;
+			monthHours += FULL_DAY_HOUR;
 			return IS_PRESENT;
 		case IS_PART_TIME:
 			System.out.println("Emplyee is part time.");
 			wage = PART_TIME_HOUR * WAGE_PER_HOUR;
 			System.out.println("Employee daily wage is "+wage);
 			monthWages += wage;
+			monthHours += PART_TIME_HOUR;
 			return IS_PART_TIME;
 		default:
 			System.out.println("Employee is absenet.");
@@ -33,7 +37,8 @@ public class EmployeeWageComputation {
 	}
 	
 	public static double monthlyWage() {
-		for (int day = 1; day <= 20; day++) {
+		int day = 1;
+		while (day <= 20 && monthHours < MONTHLY_HOUR_LIMIT) {
 			attendance();
 		}
 		return monthWages;
