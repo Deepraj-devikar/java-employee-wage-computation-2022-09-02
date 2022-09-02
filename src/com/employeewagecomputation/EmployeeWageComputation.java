@@ -8,16 +8,16 @@ public class EmployeeWageComputation {
 	public static double PART_TIME_HOUR = 4;
 	
 	public static int attendance() {
-		int crrAttedance = (int) Math.floor(Math.random() * 10) % 3;
-		if (crrAttedance == IS_PRESENT) {
+		switch ((int) Math.floor(Math.random() * 10) % 3) {
+		case IS_PRESENT:
 			System.out.println("Emplyee is present.");
 			System.out.println("Employee daily wage is "+(FULL_DAY_HOUR * WAGE_PER_HOUR));
 			return IS_PRESENT;
-		} else if (crrAttedance == IS_PART_TIME) {
+		case IS_PART_TIME:
 			System.out.println("Emplyee is part time.");
 			System.out.println("Employee daily wage is "+(PART_TIME_HOUR * WAGE_PER_HOUR));
 			return IS_PART_TIME;
-		} else {
+		default:
 			System.out.println("Employee is absenet.");
 			System.out.println("Employee daily wage is 0");
 			return 0;
