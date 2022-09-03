@@ -16,6 +16,12 @@ public class Employee {
 		monthHours = 0;
 	}
 	
+	/**
+	 * check employee attendance according to attendance calculate and display daily wage 
+	 * then increments month wage and month hours by daily wage and day hours respectively
+	 * @param wagePerHour
+	 * @return attendance
+	 */
 	public int attendance(double wagePerHour) {
 		double wage = 0;
 		switch ((int) Math.floor(Math.random() * 10) % 3) {
@@ -40,6 +46,13 @@ public class Employee {
 		}
 	}
 	
+	/**
+	 * calculates whole months wage
+	 * @param wagePerHour
+	 * @param workingDays
+	 * @param monthlyHourLimit
+	 * @return monthWages
+	 */
 	public double monthlyWage(double wagePerHour, int workingDays, double monthlyHourLimit) {
 		int day = 1;
 		while (day <= workingDays && monthHours < monthlyHourLimit) {

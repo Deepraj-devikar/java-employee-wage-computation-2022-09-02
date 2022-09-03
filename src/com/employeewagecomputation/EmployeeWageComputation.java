@@ -8,10 +8,12 @@ public class EmployeeWageComputation {
 		Company wipro = new Company("Wipro", 10, 24, 200);
 		tcs.addEmployee("Raj");
 		wipro.addEmployee("Harsh");
-		System.out.println("Monthly wage for TCS employees is : ");
-		tcs.employeesMonthlyWage();
-		System.out.println("Monthly wage for Wipro employees is : ");
-		wipro.employeesMonthlyWage();
+		System.out.println("Monthly wage for "+tcs.name+" employees is : ");
+		tcs.empWageBuilder();
+		System.out.println("Monthly wage for "+wipro.name+" employees is : ");
+		wipro.empWageBuilder();
+		System.out.println("Total wage for "+tcs.name+" is "+tcs.totalWage);
+		System.out.println("Total wage for "+wipro.name+" is "+wipro.totalWage);
 	}
 
 }
