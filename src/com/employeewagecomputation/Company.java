@@ -3,8 +3,8 @@ package com.employeewagecomputation;
 import java.util.ArrayList;
 
 public class Company {
-	String name;
-	double totalWage;
+	public String name;
+	private double totalWage;
 	ArrayList<Employee> employees = new ArrayList<Employee>();
 	double wagePerHour;
 	int workingDays;
@@ -26,7 +26,7 @@ public class Company {
 	 * calculate and display month wage of all employees in company in specific month
 	 * @return total of month wage of all employees in company in specific month
 	 */
-	private double employeesMonthlyWage() {
+	public double employeesMonthlyWage() {
 		double monthWage = 0;
 		for (int index = 0; index < employees.size(); index++) {
 			Employee employee = employees.get(index);
@@ -36,12 +36,12 @@ public class Company {
 		}
 		return monthWage;
 	}
-	
-	/*
-	 * store total of month wage of all employees in company in specific month
-	 */
-	public void empWageBuilder() {
-		totalWage += employeesMonthlyWage();
+
+	public double getTotalWage() {
+		return totalWage;
 	}
 
+	public void setTotalWage(double totalWage) {
+		this.totalWage += totalWage;
+	}
 }
