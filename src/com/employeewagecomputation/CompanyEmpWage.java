@@ -2,7 +2,7 @@ package com.employeewagecomputation;
 
 import java.util.ArrayList;
 
-public class CompanyEmpWage {
+public class CompanyEmpWage implements EmpWageBuilder{
 	ArrayList<Company> companies = new ArrayList<Company>();
 	
 	public void addCompany(String comapnyName, double wagePerHour, int workingDays, double monthlyHourLimit) {
