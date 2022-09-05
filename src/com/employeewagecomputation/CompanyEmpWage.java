@@ -28,11 +28,14 @@ public class CompanyEmpWage implements EmpWageBuilder{
 		}
 	}
 	
-	/*
-	 * show all companies total wage
+	/**
+	 * Check company of specified names occurs or not if occurs then return its total wages otherwise return 0
+	 * @param companyName
+	 * @return company's total wages 
 	 */
-	public void companiesTotalWage() {
-		for (Company company : companies) System.out.println("Total wage for "+company.name+" is "+company.getTotalWage());
+	public double companyTotalWage(String companyName) {
+		for (Company company : companies) if (company.name == companyName) return company.getTotalWage();
+		return 0;
 	}
 	
 	public void showCompaniesEmployeesDailyWages() {
