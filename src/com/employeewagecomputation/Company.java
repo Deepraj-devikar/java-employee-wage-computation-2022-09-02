@@ -46,4 +46,11 @@ public class Company {
 	public void setTotalWage(double totalWage) {
 		this.totalWage += totalWage;
 	}
+	
+	public void showEmployeesDailyWages() {
+		employees.forEach((employee) -> {
+			System.out.println("\n"+employee.name+" wages list : ");
+			employee.showDailyWages();
+		});
+	}
 }

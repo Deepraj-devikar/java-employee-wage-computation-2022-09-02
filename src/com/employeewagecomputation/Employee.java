@@ -1,5 +1,7 @@
 package com.employeewagecomputation;
 
+import java.util.HashMap;
+
 public class Employee {
 	final static int IS_PRESENT = 1;
 	final static int IS_PART_TIME = 2;
@@ -9,6 +11,7 @@ public class Employee {
 	public String name;
 	double monthWages;
 	double monthHours;
+	HashMap<String, HashMap<String, Double>> dailyWages = new HashMap<String, HashMap<String, Double>>();
 	
 	Employee(String name) {
 		this.name = name;
@@ -19,31 +22,32 @@ public class Employee {
 	/**
 	 * check employee attendance according to attendance calculate and display daily wage 
 	 * then increments month wage and month hours by daily wage and day hours respectively
+	 * and store todays wage into daily wages
 	 * @param wagePerHour
-	 * @return attendance
+	 * @param day
 	 */
-	public int attendance(double wagePerHour) {
+	public void attendance(double wagePerHour, int day) {
+		HashMap<String, Double> todaysWage = new HashMap<String, Double>();
 		double wage = 0;
 		switch ((int) Math.floor(Math.random() * 10) % 3) {
 		case IS_PRESENT:
 			System.out.println(name+" is present.");
-			wage = FULL_DAY_HOUR * wagePerHour;
-			System.out.println(name+" daily wage is "+wage);
-			monthWages += wage;
+			wage = FULL_DAY_HOUR * wagePerHour;			
 			monthHours += FULL_DAY_HOUR;
-			return IS_PRESENT;
+			break;
 		case IS_PART_TIME:
 			System.out.println(name+" is part time.");
 			wage = PART_TIME_HOUR * wagePerHour;
-			System.out.println(name+" daily wage is "+wage);
-			monthWages += wage;
 			monthHours += PART_TIME_HOUR;
-			return IS_PART_TIME;
+			break;
 		default:
 			System.out.println(name+" is absenet.");
-			System.out.println(name+" daily wage is 0");
-			return 0;
 		}
+		System.out.println(name+" daily wage is "+wage);
+		monthWages += wage;
+		todaysWage.put("today", wage);
+		todaysWage.put("total", monthWages);
+		dailyWages.put("day "+day, todaysWage);
 	}
 	
 	/**
@@ -56,9 +60,20 @@ public class Employee {
 	public double monthlyWage(double wagePerHour, int workingDays, double monthlyHourLimit) {
 		int day = 1;
 		while (day <= workingDays && monthHours < monthlyHourLimit) {
-			attendance(wagePerHour);
+			attendance(wagePerHour, day);
+			day++;
 		}
 		return monthWages;
+	}
+	
+	public void showDailyWages() {
+		System.out.println("Day Number \t Day Wage \t Total Wage");
+		for (int day = 1; day <= 32; day++)
+			if (dailyWages.containsKey("day "+day)) {
+				HashMap<String, Double> todaysWage = dailyWages.get("day "+day);
+				System.out.println( "day "+day+" \t "+todaysWage.get("today")+" \t "+todaysWage.get("total"));
+			}
+			else break;
 	}
 	
 }

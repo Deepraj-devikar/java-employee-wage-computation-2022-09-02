@@ -11,6 +11,7 @@ public class EmployeeWageComputation {
 		companyEmpWage.addEmployee("Harsh", "Wipro");
 		companyEmpWage.empWageBuilder();
 		companyEmpWage.companiesTotalWage();
+		companyEmpWage.showCompaniesEmployeesDailyWages();
 	}
 
 }

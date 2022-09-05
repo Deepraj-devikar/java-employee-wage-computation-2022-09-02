@@ -34,4 +34,11 @@ public class CompanyEmpWage implements EmpWageBuilder{
 	public void companiesTotalWage() {
 		for (Company company : companies) System.out.println("Total wage for "+company.name+" is "+company.getTotalWage());
 	}
+	
+	public void showCompaniesEmployeesDailyWages() {
+		companies.forEach((company) -> {
+			System.out.println("\n"+company.name+" wages list : ");
+			company.showEmployeesDailyWages();	
+		});
+	}
 }
