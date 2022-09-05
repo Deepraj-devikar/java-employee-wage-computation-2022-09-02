@@ -3,10 +3,12 @@ package com.employeewagecomputation;
 import java.util.ArrayList;
 
 public class CompanyEmpWage implements EmpWageBuilder{
+	// Array List Collection for storing companies
 	ArrayList<Company> companies = new ArrayList<Company>();
 	
 	public void addCompany(String comapnyName, double wagePerHour, int workingDays, double monthlyHourLimit) {
-		companies.add(new Company(comapnyName, wagePerHour, workingDays, monthlyHourLimit));
+		// Adding company to companies array list
+		companies.add(new Company(comapnyName, wagePerHour, workingDays, monthlyHourLimit)); 
 	}
 	
 	public void addEmployee(String employeeName, String companyName) {

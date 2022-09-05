@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Company {
 	public String name;
 	private double totalWage;
+	// Array List Collection for storing employees
 	ArrayList<Employee> employees = new ArrayList<Employee>();
 	double wagePerHour;
 	int workingDays;
@@ -19,6 +20,7 @@ public class Company {
 	}
 	
 	public void addEmployee(String name) {
+		// Adding employee to employees array list
 		employees.add(new Employee(name));
 	}
 	
